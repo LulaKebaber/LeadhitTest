@@ -1,0 +1,5 @@
+.env
+venv
+init-db
+data-db
+.idea
