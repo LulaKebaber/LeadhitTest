@@ -13,9 +13,9 @@ def get_form(request):
     for template in all_templates:
         template_fields = template.fields
         if FormService(form_data=form_data, form_template=template_fields).check_form_exists():
-            return JsonResponse({'data': template.name}, status=200)
+            return JsonResponse({'form_name': template.name}, status=200)
     new_form = FormService(form_data=form_data, form_template=1).create_new_form()
-    return JsonResponse({'data': new_form}, status=200)
+    return JsonResponse(new_form, status=200)
 
 
 @api_view(['POST'])
