@@ -1,0 +1,75 @@
+# create forms (service.py line: 66)
+POST http://localhost:8000/api/create_test_forms
+Content-Type: application/json
+
+{
+  "action": "create"
+}
+###
+
+# delete all forms
+DELETE http://localhost:8000/api/delete_all_forms
+Content-Type: application/json
+
+{
+  "action": "delete"
+}
+###
+
+# registration_form (service.py line: 69)
+GET http://localhost:8000/api/get_form?username=abc&email=b@mail.ru&password=pass&user_phone=%2B7%20700%20700%2070%2070&created_date=2022-10-10
+Content-Type: application/json
+###
+
+# contact_form (service.py line: 80)
+GET http://localhost:8000/api/get_form?name=123&contact_email=a@a.ru&contact_phone=%2B7%20701%20701%2071%2071
+Content-Type: application/json
+###
+
+# appointment_form (service.py line: 89)
+GET http://localhost:8000/api/get_form?patient_name=123&patient_phone=%2B7%20702%20702%2072%2072&appointment_date=2022-10-10
+Content-Type: application/json
+###
+
+# custom form (1)
+GET http://localhost:8000/api/get_form?username=123&email=abc@mail.ru
+Content-Type: application/json
+###
+
+# custom form (2)
+GET http://localhost:8000/api/get_form?user_phone=%2B7%20703%20703%2073%2073&order_date=11.09.2023
+Content-Type: application/json
+###
+
+# custom form (3)
+GET http://localhost:8000/api/get_form?surname=123&contact_phone=%2B7%20704%20704%2074%2074&user_email=abc@mail
+Content-Type: application/json
+###
+
+# add new custom form
+POST http://localhost:8000/api/add_form
+Content-Type: application/json
+
+{
+  "name": "custom_form",
+  "fields": {
+    "mail": "email",
+    "created_at": "date"
+  }
+}
+###
+
+# test new custom form (1)
+GET http://localhost:8000/api/get_form?mail=abc@mail.ru&created_at=11.09.2023
+Content-Type: application/json
+###
+
+# test new custom form (2) with extra argument
+GET http://localhost:8000/api/get_form?mail=abc@mail.ru&created_at=11.09.2023&name=a
+Content-Type: application/json
+###
+
+# test new custom form (3) with extra argument
+GET http://localhost:8000/api/get_form?mail=abc@mail.ru&created_at=11.09.2023&phone=%2B7%20705%20705%2075%2075
+Content-Type: application/json
+###
